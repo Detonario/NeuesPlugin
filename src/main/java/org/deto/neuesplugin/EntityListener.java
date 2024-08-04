@@ -3,12 +3,17 @@ package org.deto.neuesplugin;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
+
+import java.util.UUID;
 
 public class EntityListener implements Listener {
 
@@ -89,6 +94,18 @@ public class EntityListener implements Listener {
         }
 
     }
-    
+
+    @EventHandler
+    public void onEntityDeath(EntityDeathEvent event) {
+        Entity entity = event.getEntity();
+
+        if (entity.getType() == EntityType.ZOMBIE) {
+            Zombie zombie = (Zombie) entity;
+            UUID zombieID = zombie.getUniqueId();
+
+            MinigameCommand.zombieMap.remove(zombieID);
+        }
+    }
+
 
 }

@@ -9,6 +9,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
@@ -29,7 +30,10 @@ public class MinigameCommand implements CommandExecutor {
     World world = Bukkit.getWorld("world");
     Location location = new Location(world, 495, 100, 495);
 
-    public static Map<UUID, Zombie> zombieMap = new HashMap<>();
+    World world2 = Bukkit.getWorld("world");
+    Location mainHub = new Location(world2, 100, 75, 100);
+
+    public static final Map<UUID, Zombie> zombieMap = new HashMap<>();
 
     public static Player player;
 
@@ -49,7 +53,6 @@ public class MinigameCommand implements CommandExecutor {
             return true;
         }
 
-        isMinigameRunning = true;
         player = (Player) sender;
 
         ItemStack sword = new ItemStack(Material.DIAMOND_SWORD);
@@ -78,6 +81,21 @@ public class MinigameCommand implements CommandExecutor {
             zombieMap.put(zombie.getUniqueId(), zombie);
             zombie.setTarget(player);
         }
+
+        isMinigameRunning = true;
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if (zombieMap.isEmpty() && MinigameCommand.player != null) {
+                    player.sendMessage("Du hast gewonnen!");
+                    player.teleport(mainHub);
+                    setBoolean(false);
+                    cancel();
+                }
+            }
+        }.runTaskTimer(NeuesPlugin.getInstance(), 10, 1);
+
 
         return true;
     }
@@ -129,13 +147,13 @@ public class MinigameCommand implements CommandExecutor {
 
 
     public static void bereichSchuetzen() {
-        MinigameCommand.minEcke = new Location(getServer().getWorld("world"), 450, 99, 450);
-        MinigameCommand.maxEcke = new Location(getServer().getWorld("world"), 550, 116, 550);
+        org.deto.neuesplugin.MinigameCommand.minEcke = new Location(getServer().getWorld("world"), 450, 99, 450);
+        org.deto.neuesplugin.MinigameCommand.maxEcke = new Location(getServer().getWorld("world"), 550, 116, 550);
 
-        for (int x = MinigameCommand.minEcke.getBlockX(); x <= MinigameCommand.maxEcke.getBlockX(); x++) {
-            for (int y = MinigameCommand.minEcke.getBlockY(); y <= MinigameCommand.maxEcke.getBlockY(); y++) {
-                for (int z = MinigameCommand.minEcke.getBlockZ(); z <= MinigameCommand.maxEcke.getBlockZ(); z++) {
-                    MinigameCommand.geschuetzteBloecke.add(new Location(getServer().getWorld("world"), x, y, z));
+        for (int x = org.deto.neuesplugin.MinigameCommand.minEcke.getBlockX(); x <= org.deto.neuesplugin.MinigameCommand.maxEcke.getBlockX(); x++) {
+            for (int y = org.deto.neuesplugin.MinigameCommand.minEcke.getBlockY(); y <= org.deto.neuesplugin.MinigameCommand.maxEcke.getBlockY(); y++) {
+                for (int z = org.deto.neuesplugin.MinigameCommand.minEcke.getBlockZ(); z <= org.deto.neuesplugin.MinigameCommand.maxEcke.getBlockZ(); z++) {
+                    org.deto.neuesplugin.MinigameCommand.geschuetzteBloecke.add(new Location(getServer().getWorld("world"), x, y, z));
                 }
             }
         }

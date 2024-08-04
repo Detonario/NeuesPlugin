@@ -29,21 +29,13 @@ public final class NeuesPlugin extends JavaPlugin {
             @Override
             public void run() {
                 MinigameCommand.removeAllEntities();
-                if (MinigameCommand.zombieMap.isEmpty() && MinigameCommand.player != null) {
-                    MinigameCommand.player.sendMessage("GEWINNER!!!");
-                    MinigameCommand.setBoolean(false);
-                    cancel();
-                }
             }
         }.runTaskTimer(this, 0, 1);
-
-
     }
+
 
     @Override
     public void onDisable() {
-
-
         if (task != null && !task.isCancelled()) {
             task.cancel();
         }
@@ -52,8 +44,6 @@ public final class NeuesPlugin extends JavaPlugin {
     public static NeuesPlugin getInstance() {
         return getPlugin(NeuesPlugin.class);
     }
-
-
 
 
     /*@EventHandler
