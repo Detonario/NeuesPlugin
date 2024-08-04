@@ -1,0 +1,12 @@
+org\deto\neuesplugin\CowCommand.class
+org\deto\neuesplugin\CowSettings.class
+org\deto\neuesplugin\CustomItemCommand.class
+org\deto\neuesplugin\MinigameCommand.class
+org\deto\neuesplugin\Keys.class
+org\deto\neuesplugin\NeuesPlugin.class
+org\deto\neuesplugin\GiveBlockCommand.class
+org\deto\neuesplugin\NeuesPlugin$1.class
+org\deto\neuesplugin\DisplayEntityCommand.class
+org\deto\neuesplugin\ButterflyTask.class
+org\deto\neuesplugin\ButterflyCommand.class
+org\deto\neuesplugin\EntityListener.class

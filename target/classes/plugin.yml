@@ -1,0 +1,35 @@
+name: NeuesPlugin
+version: '1.0-SNAPSHOT'
+main: org.deto.neuesplugin.NeuesPlugin
+api-version: '1.21'
+commands:
+  cow:
+    description: "Spawns an exploding cow"
+    usage: "/cow [set/baby] [entityType]"
+    aliases: [ ]
+    permission: neuesplugin.command.cow
+  dias:
+    description: "Spawns a diamond block"
+    usage: "/dias"
+    aliases: [ ]
+    permission: neuesplugin.command.dias
+  minigame:
+    description: "Starts a minigame"
+    usage: "/minigame"
+    aliases: [ ]
+    permission: neuesplugin.command.minigame
+  butterfly:
+    description: "Creates particles"
+    usage: "/butterfly"
+    aliases: [ ]
+    permission: neuesplugin.command.butterfly
+  displayentity:
+    description: "Spawns a display entity"
+    usage: "/displayentity"
+    aliases: [ ]
+    permission: neuesplugin.command.displayentity
+  customitem:
+    description: "Spawns a custom item"
+    usage: "/customitem"
+    aliases: [ ]
+    permission: neuesplugin.command.customitem
