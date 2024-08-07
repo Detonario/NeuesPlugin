@@ -1,6 +1,5 @@
 package org.deto.neuesplugin;
 
-import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -12,6 +11,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.persistence.PersistentDataContainer;
 
 import java.util.UUID;
 
@@ -37,9 +37,9 @@ public class EntityListener implements Listener {
         }*/
 
 
-        if (player.isFlying()) {
+        /*if (player.isFlying()) {
             player.addAttachment(NeuesPlugin.getInstance(), "neuesplugin.command.cow", true, 20 * 5);
-        }
+        }*/
 
 
         /*if (permissions.containsKey(player.getUniqueId())) {
@@ -57,15 +57,20 @@ public class EntityListener implements Listener {
         }*/
 
 
-        if (entity.getType() == CowSettings.getInstance().getExplodingType() && entity.hasMetadata("CowCannon") && player.getItemInHand().getType() == Material.BUCKET) {
+        if (player.getItemInHand().getItemMeta() != null) {
+            PersistentDataContainer entityContainer = entity.getPersistentDataContainer();
+            PersistentDataContainer handItemContainer = player.getItemInHand().getItemMeta().getPersistentDataContainer();
 
-            if (!player.hasPermission("neuesplugin.command.cow")) {
-                player.sendMessage("You don't have permission to milk cows!");
+            if (entity.getType() == CowSettings.getInstance().getExplodingType() && entityContainer.has(Keys.CUSTOM_COW) && handItemContainer.has(Keys.CUSTOM_BUCKET)) {
+                /*if (!player.hasPermission("neuesplugin.command.cow")) {
+                    player.sendMessage("You don't have permission to milk cows!");
 
-                return;
+                    return;
+                }*/
+
+                entity.getWorld().createExplosion(entity.getLocation(), 25);
             }
 
-            entity.getWorld().createExplosion(entity.getLocation(), 25);
         }
 
 

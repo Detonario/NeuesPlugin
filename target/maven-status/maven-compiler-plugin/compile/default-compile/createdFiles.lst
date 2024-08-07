@@ -7,6 +7,7 @@ org\deto\neuesplugin\NeuesPlugin.class
 org\deto\neuesplugin\GiveBlockCommand.class
 org\deto\neuesplugin\NeuesPlugin$1.class
 org\deto\neuesplugin\DisplayEntityCommand.class
+org\deto\neuesplugin\MinigameCommand$1.class
 org\deto\neuesplugin\ButterflyTask.class
 org\deto\neuesplugin\ButterflyCommand.class
 org\deto\neuesplugin\EntityListener.class

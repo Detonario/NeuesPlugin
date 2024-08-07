@@ -9,7 +9,7 @@ import org.bukkit.entity.Ageable;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.metadata.FixedMetadataValue;
+import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -69,14 +69,15 @@ public class CowCommand implements CommandExecutor, TabExecutor {
             if (entity instanceof Ageable) {
                 ((Ageable) entity).setBaby();
             } else {
-                sender.sendMessage("Kann keine Kuh sein.");
+                sender.sendMessage("Kann kein Baby sein.");
                 return true;
             }
 
         }
 
-        entity.setMetadata("CowCannon", new FixedMetadataValue(NeuesPlugin.getInstance(), true));
-        entity.setCustomName(ChatColor.LIGHT_PURPLE + "EXTRA");
+        //entity.setMetadata("CowCannon", new FixedMetadataValue(NeuesPlugin.getInstance(), true));
+        entity.getPersistentDataContainer().set(Keys.CUSTOM_COW, PersistentDataType.BOOLEAN, true);
+        entity.setCustomName(ChatColor.AQUA + "Milk me!");
         entity.setCustomNameVisible(true);
 
         return true;
