@@ -29,7 +29,7 @@ public class CustomItemCommand implements CommandExecutor {
         ItemStack customBucket = new ItemStack(Material.BUCKET);
         ItemMeta meta = customBucket.getItemMeta();
 
-        meta.setDisplayName(ChatColor.GOLD + "TEST" + ChatColor.BOLD + "Custom Bucket");
+        meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Custom Bucket");
         meta.setLore(Arrays.asList("", ChatColor.GRAY + "Right click me on a custom cow!"));
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addEnchant(Enchantment.WIND_BURST, 1, true);

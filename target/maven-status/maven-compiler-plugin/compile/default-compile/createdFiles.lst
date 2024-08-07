@@ -1,7 +1,9 @@
 org\deto\neuesplugin\CowCommand.class
 org\deto\neuesplugin\CowSettings.class
 org\deto\neuesplugin\CustomItemCommand.class
+org\deto\neuesplugin\GuiCommand.class
 org\deto\neuesplugin\MinigameCommand.class
+org\deto\neuesplugin\GuiListener.class
 org\deto\neuesplugin\Keys.class
 org\deto\neuesplugin\NeuesPlugin.class
 org\deto\neuesplugin\GiveBlockCommand.class

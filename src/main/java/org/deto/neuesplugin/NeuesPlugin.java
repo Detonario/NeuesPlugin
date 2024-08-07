@@ -11,6 +11,7 @@ public final class NeuesPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new EntityListener(), this);
+        getServer().getPluginManager().registerEvents(new GuiListener(), this);
 
         getCommand("cow").setExecutor(new CowCommand());
         getCommand("dias").setExecutor(new GiveBlockCommand());
@@ -18,6 +19,7 @@ public final class NeuesPlugin extends JavaPlugin {
         getCommand("butterfly").setExecutor(new ButterflyCommand());
         getCommand("displayentity").setExecutor(new DisplayEntityCommand());
         getCommand("customitem").setExecutor(new CustomItemCommand());
+        getCommand("gui").setExecutor(new GuiCommand());
 
         MinigameCommand.bereichSchuetzen();
         CowSettings.getInstance().load();

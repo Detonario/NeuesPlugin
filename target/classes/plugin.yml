@@ -33,3 +33,8 @@ commands:
     usage: "/customitem"
     aliases: [ ]
     permission: neuesplugin.command.customitem
+  gui:
+    description: "Opens a GUI"
+    usage: "/gui"
+    aliases: [ ]
+    permission: neuesplugin.command.gui
