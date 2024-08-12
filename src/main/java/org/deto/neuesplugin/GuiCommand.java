@@ -14,6 +14,7 @@ import org.bukkit.metadata.FixedMetadataValue;
 import org.jetbrains.annotations.NotNull;
 
 public class GuiCommand implements CommandExecutor {
+
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (!(sender instanceof Player)) {
@@ -48,9 +49,10 @@ public class GuiCommand implements CommandExecutor {
         inventory.setItem(15, clearWeatherButton);
 
         player.openInventory(inventory);
-        player.setMetadata("OpenedMenu", new FixedMetadataValue(NeuesPlugin.getInstance(), "Präferenzen-Menü"));
+        player.setMetadata("OpenedMenu", new FixedMetadataValue(NeuesPlugin.getInstance(), true));
 
 
         return true;
+
     }
 }

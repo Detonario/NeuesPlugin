@@ -38,3 +38,8 @@ commands:
     usage: "/gui"
     aliases: [ ]
     permission: neuesplugin.command.gui
+  mainmenu:
+    description: "Opens the main menu"
+    usage: "/mainmenu"
+    aliases: [ ]
+    permission: neuesplugin.command.mainmenu

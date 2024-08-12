@@ -49,4 +49,24 @@ public class GuiListener implements Listener {
     }
 
 
+    /*
+    //// Was soll getan werden?
+    public void sayHi(Player player) {
+        player.sendMessage("HI");
+    }
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        /// Direkt
+        // Player player = event.getPlayer();
+        // player.sendMessage("HI");
+
+        /// Über Methode
+        // Player player = event.getPlayer();
+        //// Auslösen!
+        // sayHi(player);
+    }
+    */
+
+
 }

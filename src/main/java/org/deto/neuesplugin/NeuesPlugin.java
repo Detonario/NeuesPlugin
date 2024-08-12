@@ -8,10 +8,13 @@ public final class NeuesPlugin extends JavaPlugin {
 
     private BukkitTask task;
 
+
     @Override
     public void onEnable() {
+
         getServer().getPluginManager().registerEvents(new EntityListener(), this);
         getServer().getPluginManager().registerEvents(new GuiListener(), this);
+        getServer().getPluginManager().registerEvents(new MainMenuListener(), this);
 
         getCommand("cow").setExecutor(new CowCommand());
         getCommand("dias").setExecutor(new GiveBlockCommand());
@@ -20,6 +23,7 @@ public final class NeuesPlugin extends JavaPlugin {
         getCommand("displayentity").setExecutor(new DisplayEntityCommand());
         getCommand("customitem").setExecutor(new CustomItemCommand());
         getCommand("gui").setExecutor(new GuiCommand());
+        getCommand("mainmenu").setExecutor(new MainMenu());
 
         MinigameCommand.bereichSchuetzen();
         CowSettings.getInstance().load();
@@ -33,6 +37,8 @@ public final class NeuesPlugin extends JavaPlugin {
                 MinigameCommand.removeAllEntities();
             }
         }.runTaskTimer(this, 0, 1);
+
+
     }
 
 
