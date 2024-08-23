@@ -94,7 +94,7 @@ public class MinigameCommand implements CommandExecutor {
                     cancel();
                 }
             }
-        }.runTaskTimer(NeuesPlugin.getInstance(), 10, 1);
+        }.runTaskTimer(NeuesPlugin.getInstance(), 60, 1);
 
 
         return true;

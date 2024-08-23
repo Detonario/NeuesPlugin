@@ -1,7 +1,7 @@
 name: NeuesPlugin
 version: '${project.version}'
 main: org.deto.neuesplugin.NeuesPlugin
-api-version: '1.21'
+api-version: '1.21.1'
 commands:
   cow:
     description: "Spawns an exploding cow"
@@ -43,3 +43,8 @@ commands:
     usage: "/mainmenu"
     aliases: [ ]
     permission: neuesplugin.command.mainmenu
+  tresor:
+    description: "Opens a private safe"
+    usage: "/tresor"
+    aliases: [ ]
+    permission: neuesplugin.command.tresor

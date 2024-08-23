@@ -24,6 +24,7 @@ public final class NeuesPlugin extends JavaPlugin {
         getCommand("customitem").setExecutor(new CustomItemCommand());
         getCommand("gui").setExecutor(new GuiCommand());
         getCommand("mainmenu").setExecutor(new MainMenu());
+        getCommand("tresor").setExecutor(new TresorCommand());
 
         MinigameCommand.bereichSchuetzen();
         CowSettings.getInstance().load();
