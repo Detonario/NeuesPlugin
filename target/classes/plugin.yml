@@ -43,3 +43,8 @@ commands:
     usage: "/mainmenu"
     aliases: [ ]
     permission: neuesplugin.command.mainmenu
+  tresor:
+    description: "Opens a private safe"
+    usage: "/tresor"
+    aliases: [ ]
+    permission: neuesplugin.command.tresor

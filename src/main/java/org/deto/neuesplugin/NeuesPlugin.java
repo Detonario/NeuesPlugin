@@ -4,17 +4,22 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
+import java.io.File;
+import java.io.IOException;
+
 public final class NeuesPlugin extends JavaPlugin {
 
     private BukkitTask task;
-
+    private TresorCommand tresorCommand;
 
     @Override
     public void onEnable() {
-
         getServer().getPluginManager().registerEvents(new EntityListener(), this);
         getServer().getPluginManager().registerEvents(new GuiListener(), this);
         getServer().getPluginManager().registerEvents(new MainMenuListener(), this);
+        getServer().getPluginManager().registerEvents(new TresorListener(), this);
+
+        tresorCommand = TresorCommand.getInstance();
 
         getCommand("cow").setExecutor(new CowCommand());
         getCommand("dias").setExecutor(new GiveBlockCommand());
@@ -24,7 +29,7 @@ public final class NeuesPlugin extends JavaPlugin {
         getCommand("customitem").setExecutor(new CustomItemCommand());
         getCommand("gui").setExecutor(new GuiCommand());
         getCommand("mainmenu").setExecutor(new MainMenu());
-        getCommand("tresor").setExecutor(new TresorCommand());
+        getCommand("tresor").setExecutor(tresorCommand);
 
         MinigameCommand.bereichSchuetzen();
         CowSettings.getInstance().load();
@@ -39,6 +44,15 @@ public final class NeuesPlugin extends JavaPlugin {
             }
         }.runTaskTimer(this, 0, 1);
 
+        File inventoryFile = new File(getDataFolder(), "inventory.yml");
+        if (inventoryFile.exists()) {
+            try {
+                tresorCommand.loadInventory(inventoryFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 
     }
 
@@ -47,6 +61,15 @@ public final class NeuesPlugin extends JavaPlugin {
     public void onDisable() {
         if (task != null && !task.isCancelled()) {
             task.cancel();
+        }
+
+        File inventoryFile = new File(getDataFolder(), "inventory.yml");
+        if (tresorCommand.getInventory() != null) {
+            try {
+                tresorCommand.saveInventory(tresorCommand.getInventory(), inventoryFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
