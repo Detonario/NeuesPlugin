@@ -19,7 +19,7 @@ import java.util.List;
 public class TresorCommand implements CommandExecutor {
 
     private static final TresorCommand instance = new TresorCommand();
-    private Inventory tresor;
+    private static Inventory tresor;
 
     private TresorCommand() {
     }
@@ -64,7 +64,7 @@ public class TresorCommand implements CommandExecutor {
         return tresor;
     }
 
-    public Inventory getInventory() {
+    public static Inventory getInventory() {
         return tresor;
     }
 
