@@ -6,16 +6,24 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.Map;
 
 public class TresorListener implements Listener {
 
     @EventHandler
     public void onClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
+        Inventory clickedInventory = event.getClickedInventory();
 
-        if (player.hasMetadata("Tresor")) {
-            if (event.getInventory().equals(TresorCommand.getInventory())) {
+        if (player.hasMetadata("Tresor") && clickedInventory != null) {
+            Inventory tresorInventory = TresorCommand.getInventory();
+
+            if (clickedInventory.equals(tresorInventory)) {
                 int slot = event.getSlot();
+
                 if (slot >= 18 && slot <= 26) {
                     event.setCancelled(true);
                 }
@@ -35,9 +43,18 @@ public class TresorListener implements Listener {
     @EventHandler
     public void onDrag(InventoryDragEvent event) {
         Player player = (Player) event.getWhoClicked();
+        Inventory tresorInventory = TresorCommand.getInventory();
 
         if (player.hasMetadata("Tresor")) {
-            event.setCancelled(true);
+            for (Map.Entry<Integer, ItemStack> entry : event.getNewItems().entrySet()) {
+                int slot = entry.getKey();
+                Inventory draggedInventory = event.getInventory();
+
+                if (draggedInventory.equals(tresorInventory) && slot >= 18 && slot <= 26) {
+                    event.setCancelled(true);
+                    break;
+                }
+            }
         }
     }
 }

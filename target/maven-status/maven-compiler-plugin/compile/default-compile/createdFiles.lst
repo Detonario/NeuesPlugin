@@ -10,6 +10,7 @@ org\deto\neuesplugin\Keys.class
 org\deto\neuesplugin\NeuesPlugin.class
 org\deto\neuesplugin\GiveBlockCommand.class
 org\deto\neuesplugin\NeuesPlugin$1.class
+org\deto\neuesplugin\Board.class
 org\deto\neuesplugin\DisplayEntityCommand.class
 org\deto\neuesplugin\MinigameCommand$1.class
 org\deto\neuesplugin\MainMenu.class

@@ -10,6 +10,9 @@ import java.io.IOException;
 public final class NeuesPlugin extends JavaPlugin {
 
     private BukkitTask task;
+    private BukkitTask task2;
+
+
     private TresorCommand tresorCommand;
 
     @Override
@@ -35,6 +38,7 @@ public final class NeuesPlugin extends JavaPlugin {
         CowSettings.getInstance().load();
 
         task = getServer().getScheduler().runTaskTimer(this, ButterflyTask.getInstance(), 0, 1);
+        task2 = getServer().getScheduler().runTaskTimer(this, Board.getInstance(), 0, 20);
 
 
         new BukkitRunnable() {
@@ -62,6 +66,11 @@ public final class NeuesPlugin extends JavaPlugin {
         if (task != null && !task.isCancelled()) {
             task.cancel();
         }
+
+        if (task2 != null && !task2.isCancelled()) {
+            task2.cancel();
+        }
+
 
         File inventoryFile = new File(getDataFolder(), "inventory.yml");
         if (tresorCommand.getInventory() != null) {
