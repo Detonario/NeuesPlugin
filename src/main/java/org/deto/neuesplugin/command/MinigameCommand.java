@@ -1,4 +1,4 @@
-package org.deto.neuesplugin;
+package org.deto.neuesplugin.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -10,6 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.deto.neuesplugin.NeuesPlugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
@@ -147,13 +148,13 @@ public class MinigameCommand implements CommandExecutor {
 
 
     public static void bereichSchuetzen() {
-        org.deto.neuesplugin.MinigameCommand.minEcke = new Location(getServer().getWorld("world"), 450, 99, 450);
-        org.deto.neuesplugin.MinigameCommand.maxEcke = new Location(getServer().getWorld("world"), 550, 116, 550);
+        MinigameCommand.minEcke = new Location(getServer().getWorld("world"), 450, 99, 450);
+        MinigameCommand.maxEcke = new Location(getServer().getWorld("world"), 550, 116, 550);
 
-        for (int x = org.deto.neuesplugin.MinigameCommand.minEcke.getBlockX(); x <= org.deto.neuesplugin.MinigameCommand.maxEcke.getBlockX(); x++) {
-            for (int y = org.deto.neuesplugin.MinigameCommand.minEcke.getBlockY(); y <= org.deto.neuesplugin.MinigameCommand.maxEcke.getBlockY(); y++) {
-                for (int z = org.deto.neuesplugin.MinigameCommand.minEcke.getBlockZ(); z <= org.deto.neuesplugin.MinigameCommand.maxEcke.getBlockZ(); z++) {
-                    org.deto.neuesplugin.MinigameCommand.geschuetzteBloecke.add(new Location(getServer().getWorld("world"), x, y, z));
+        for (int x = MinigameCommand.minEcke.getBlockX(); x <= MinigameCommand.maxEcke.getBlockX(); x++) {
+            for (int y = MinigameCommand.minEcke.getBlockY(); y <= MinigameCommand.maxEcke.getBlockY(); y++) {
+                for (int z = MinigameCommand.minEcke.getBlockZ(); z <= MinigameCommand.maxEcke.getBlockZ(); z++) {
+                    MinigameCommand.geschuetzteBloecke.add(new Location(getServer().getWorld("world"), x, y, z));
                 }
             }
         }

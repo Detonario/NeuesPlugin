@@ -1,4 +1,4 @@
-package org.deto.neuesplugin;
+package org.deto.neuesplugin.listener;
 
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
@@ -12,6 +12,9 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.persistence.PersistentDataContainer;
+import org.deto.neuesplugin.CowSettings;
+import org.deto.neuesplugin.Keys;
+import org.deto.neuesplugin.command.MinigameCommand;
 
 import java.util.UUID;
 
@@ -68,7 +71,7 @@ public class EntityListener implements Listener {
                     return;
                 }*/
 
-                entity.getWorld().createExplosion(entity.getLocation(), 25);
+                entity.getWorld().createExplosion(entity.getLocation(), 5);
             }
 
         }

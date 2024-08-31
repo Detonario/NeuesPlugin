@@ -1,4 +1,4 @@
-package org.deto.neuesplugin;
+package org.deto.neuesplugin.runnable;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Color;

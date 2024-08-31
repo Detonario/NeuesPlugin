@@ -1,4 +1,4 @@
-package org.deto.neuesplugin;
+package org.deto.neuesplugin.listener;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -9,6 +9,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.ItemStack;
+import org.deto.neuesplugin.MainMenuMethods;
+import org.deto.neuesplugin.NeuesPlugin;
 
 public class MainMenuListener implements Listener {
 

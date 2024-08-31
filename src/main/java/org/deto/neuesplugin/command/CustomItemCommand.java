@@ -1,4 +1,4 @@
-package org.deto.neuesplugin;
+package org.deto.neuesplugin.command;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -11,6 +11,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
+import org.deto.neuesplugin.Keys;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
@@ -32,7 +33,7 @@ public class CustomItemCommand implements CommandExecutor {
         meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Custom Bucket");
         meta.setLore(Arrays.asList("", ChatColor.GRAY + "Right click me on a custom cow!"));
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        meta.addEnchant(Enchantment.WIND_BURST, 1, true);
+        meta.addEnchant(Enchantment.EFFICIENCY, 1, true);
         meta.getPersistentDataContainer().set(Keys.CUSTOM_BUCKET, PersistentDataType.BOOLEAN, true);
 
         customBucket.setItemMeta(meta);

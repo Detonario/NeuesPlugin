@@ -1,4 +1,4 @@
-package org.deto.neuesplugin;
+package org.deto.neuesplugin.command;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -10,6 +10,8 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.persistence.PersistentDataType;
+import org.deto.neuesplugin.CowSettings;
+import org.deto.neuesplugin.Keys;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -57,25 +59,23 @@ public class CowCommand implements CommandExecutor, TabExecutor {
 
             }
 
-            return false;
+            return true;
         }
-
 
         Player player = (Player) sender;
         LivingEntity entity = (LivingEntity) player.getWorld().spawnEntity(player.getLocation(), CowSettings.getInstance().getExplodingType());
 
-        if (args.length == 1 && args[0].equalsIgnoreCase("baby")) {
 
+        if (args.length == 1 && args[0].equalsIgnoreCase("baby")) {
             if (entity instanceof Ageable) {
                 ((Ageable) entity).setBaby();
             } else {
-                sender.sendMessage("Kann kein Baby sein.");
+                player.sendMessage("Kann kein Baby sein");
                 return true;
             }
-
         }
 
-        //entity.setMetadata("CowCannon", new FixedMetadataValue(NeuesPlugin.getInstance(), true));
+
         entity.getPersistentDataContainer().set(Keys.CUSTOM_COW, PersistentDataType.BOOLEAN, true);
         entity.setCustomName(ChatColor.AQUA + "Milk me!");
         entity.setCustomNameVisible(true);

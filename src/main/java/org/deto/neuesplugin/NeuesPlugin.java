@@ -3,6 +3,13 @@ package org.deto.neuesplugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+import org.deto.neuesplugin.command.*;
+import org.deto.neuesplugin.listener.EntityListener;
+import org.deto.neuesplugin.listener.GuiListener;
+import org.deto.neuesplugin.listener.MainMenuListener;
+import org.deto.neuesplugin.listener.TresorListener;
+import org.deto.neuesplugin.runnable.Board;
+import org.deto.neuesplugin.runnable.ButterflyTask;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,6 +43,7 @@ public final class NeuesPlugin extends JavaPlugin {
 
         MinigameCommand.bereichSchuetzen();
         CowSettings.getInstance().load();
+        CustomRecipes.register();
 
         task = getServer().getScheduler().runTaskTimer(this, ButterflyTask.getInstance(), 0, 1);
         task2 = getServer().getScheduler().runTaskTimer(this, Board.getInstance(), 0, 20);
