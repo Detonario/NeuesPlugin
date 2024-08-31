@@ -1,4 +1,4 @@
-package org.deto.neuesplugin;
+package org.deto.neuesplugin.other;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -7,6 +7,7 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.*;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.deto.neuesplugin.NeuesPlugin;
 
 import java.util.Arrays;
 
@@ -23,7 +24,7 @@ public class CustomRecipes {
         ShapelessRecipe recipe0 = new ShapelessRecipe(new NamespacedKey(NeuesPlugin.getInstance(), "SuperPaper"), superPaper);
         recipe0.addIngredient(3, Material.BOOK);
         Bukkit.addRecipe(recipe0);
-        
+
 
         final ItemStack dickSword = new ItemStack(Material.GOLD_INGOT);
         final ItemMeta dickSwordMeta = dickSword.getItemMeta();

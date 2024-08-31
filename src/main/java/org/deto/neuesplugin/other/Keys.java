@@ -1,6 +1,7 @@
-package org.deto.neuesplugin;
+package org.deto.neuesplugin.other;
 
 import org.bukkit.NamespacedKey;
+import org.deto.neuesplugin.NeuesPlugin;
 
 public class Keys {
 

@@ -9,8 +9,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.ItemStack;
-import org.deto.neuesplugin.MainMenuMethods;
 import org.deto.neuesplugin.NeuesPlugin;
+import org.deto.neuesplugin.command.MainMenuCommand;
+
 
 public class MainMenuListener implements Listener {
 
@@ -22,7 +23,7 @@ public class MainMenuListener implements Listener {
         if (player.hasMetadata("Page1")) {
             event.setCancelled(true);
             if (event.getCurrentItem() != null && event.getSlot() == 26) {
-                MainMenuMethods.onPlayerSelectPage2(player);
+                MainMenuCommand.onPlayerSelectPage2(player);
             }
         }
 
@@ -30,9 +31,9 @@ public class MainMenuListener implements Listener {
         if (player.hasMetadata("Page2")) {
             event.setCancelled(true);
             if (event.getCurrentItem() != null && event.getSlot() == 18) {
-                MainMenuMethods.onPlayerSelectPage1(player);
+                MainMenuCommand.onPlayerSelectPage1(player);
             } else if (event.getCurrentItem() != null && event.getSlot() == 26) {
-                MainMenuMethods.onPlayerSelectPage3(player);
+                MainMenuCommand.onPlayerSelectPage3(player);
             } else if (event.getCurrentItem() != null && event.getSlot() == 11) {
                 player.sendMessage("Klicke auf folgenden Link für Premium: " + ChatColor.AQUA + ChatColor.UNDERLINE + "https://www.youtube.com/@detonario");
             } else if (event.getCurrentItem() != null && event.getSlot() == 13) {
@@ -43,17 +44,15 @@ public class MainMenuListener implements Listener {
                 player.getWorld().spawnEntity(player.getLocation(), EntityType.PIG);
                 player.getWorld().spawnEntity(player.getLocation(), EntityType.PIG);
             }
-
-
         }
 
 
         if (player.hasMetadata("Page3")) {
             event.setCancelled(true);
             if (event.getCurrentItem() != null && event.getSlot() == 18) {
-                MainMenuMethods.onPlayerSelectPage2(player);
+                MainMenuCommand.onPlayerSelectPage2(player);
             } else if (event.getCurrentItem() != null && event.getSlot() == 26) {
-                MainMenuMethods.onPlayerSelectPage4(player);
+                MainMenuCommand.onPlayerSelectPage4(player);
             }
         }
 
@@ -61,9 +60,9 @@ public class MainMenuListener implements Listener {
         if (player.hasMetadata("Page4")) {
             event.setCancelled(true);
             if (event.getCurrentItem() != null && event.getSlot() == 18) {
-                MainMenuMethods.onPlayerSelectPage3(player);
+                MainMenuCommand.onPlayerSelectPage3(player);
             } else if (event.getCurrentItem() != null && event.getSlot() == 26) {
-                MainMenuMethods.onPlayerSelectPage5(player);
+                MainMenuCommand.onPlayerSelectPage5(player);
             }
         }
 
@@ -71,11 +70,9 @@ public class MainMenuListener implements Listener {
         if (player.hasMetadata("Page5")) {
             event.setCancelled(true);
             if (event.getCurrentItem() != null && event.getSlot() == 18) {
-                MainMenuMethods.onPlayerSelectPage4(player);
+                MainMenuCommand.onPlayerSelectPage4(player);
             }
         }
-
-
     }
 
 

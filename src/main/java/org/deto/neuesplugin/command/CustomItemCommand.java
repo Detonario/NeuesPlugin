@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
-import org.deto.neuesplugin.Keys;
+import org.deto.neuesplugin.other.Keys;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;

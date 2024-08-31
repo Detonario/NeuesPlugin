@@ -10,8 +10,8 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.persistence.PersistentDataType;
-import org.deto.neuesplugin.CowSettings;
-import org.deto.neuesplugin.Keys;
+import org.deto.neuesplugin.other.CowSettings;
+import org.deto.neuesplugin.other.Keys;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

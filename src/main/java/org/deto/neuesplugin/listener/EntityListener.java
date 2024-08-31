@@ -12,9 +12,9 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.persistence.PersistentDataContainer;
-import org.deto.neuesplugin.CowSettings;
-import org.deto.neuesplugin.Keys;
 import org.deto.neuesplugin.command.MinigameCommand;
+import org.deto.neuesplugin.other.CowSettings;
+import org.deto.neuesplugin.other.Keys;
 
 import java.util.UUID;
 
@@ -114,6 +114,40 @@ public class EntityListener implements Listener {
             MinigameCommand.zombieMap.remove(zombieID);
         }
     }
+
+
+
+
+
+
+
+
+
+
+    /*@EventHandler
+    public void onPlayerInteract(PlayerInteractEvent event) {
+        Player player = event.getPlayer();
+        if (event.getHand() == EquipmentSlot.HAND && event.getAction() == Action.RIGHT_CLICK_BLOCK || event.getAction() == Action.RIGHT_CLICK_AIR) {
+            if (player.getInventory().getItemInMainHand().getType() == Material.STICK) {
+                MinigameCommand.removeAllEntities();
+                player.sendMessage("Alle Entitäten im Bereich wurden entfernt.");
+            }
+        }
+    }*/
+
+
+    /*@EventHandler
+    public void checkAllPlayersForDiamondAxe(VehicleEnterEvent event) {
+        if (event.getEntered() instanceof Player) {
+            Player player = (Player) event.getEntered();
+            Inventory inventory = player.getInventory();
+
+            if (inventory.contains(Material.DIAMOND_AXE)) {
+                player.sendMessage("Leider..");
+                event.setCancelled(true);  // Verhindert das Einsteigen in das Fahrzeug
+            }
+        }
+    }*/
 
 
 }

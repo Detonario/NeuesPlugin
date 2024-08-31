@@ -1,7 +1,8 @@
-package org.deto.neuesplugin;
+package org.deto.neuesplugin.other;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.EntityType;
+import org.deto.neuesplugin.NeuesPlugin;
 
 import java.io.File;
 

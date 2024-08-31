@@ -1,15 +1,20 @@
-package org.deto.neuesplugin;
+package org.deto.neuesplugin.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
+import org.deto.neuesplugin.NeuesPlugin;
+import org.jetbrains.annotations.NotNull;
 
-public class MainMenuMethods {
+public class MainMenuCommand implements CommandExecutor {
 
     private static final ItemStack pageButton1;
     private static final ItemStack pageButton2;
@@ -70,6 +75,25 @@ public class MainMenuMethods {
         pigMeta.setDisplayName(ChatColor.DARK_PURPLE + "Spawne ein Schwein");
         getPig.setItemMeta(pigMeta);
     }
+
+
+    @Override
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+
+        if (!(sender instanceof Player)) {
+            sender.sendMessage("Nur Spieler dürfen diesen Befehl verwenden.");
+
+            return true;
+        }
+
+        Player player = (Player) sender;
+
+        ausnahme(player);
+
+
+        return true;
+    }
+
 
     public static void ausnahme(Player player) {
         inventory1 = Bukkit.createInventory(player, 9 * 3, ChatColor.DARK_BLUE + "Menü (Seite 1)");
@@ -202,19 +226,4 @@ public class MainMenuMethods {
         player.openInventory(inventory5);
         player.setMetadata("Page5", new FixedMetadataValue(NeuesPlugin.getInstance(), true));
     }
-
-
-    /*public static ItemStack getItem(int number) {
-        if (number == 1) {
-            return getPremiumButton;
-        } else if (number == 2) {
-            return get64Blocks;
-        } else if (number == 3) {
-            return getPig;
-        } else {
-            return null;
-        }
-    }*/
-
-
 }
